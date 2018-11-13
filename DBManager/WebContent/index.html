@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>DBMANGER</title>
+		<link rel="stylesheet" href="bootstrap.min.css">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+	</head>
+
+	<body>
+		<div class="jumbotron">
+			<div class="row">
+				<div class="col-2">
+					<div class="dropdown">
+						<button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				    Select Table
+				  </button>
+						<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+							<a class="dropdown-item" href="#" data-toggle="modal" data-target="#crtTabForm">CREATE TABLE</a>
+							<a class="dropdown-item" data-toggle="modal" data-target="#insertTabForm" href="#">INSERT DATA</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+		<div class="modal fade" id="crtTabForm" tabindex="-1" role="dialog" aria-labelledby="crtTabLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<form method="post" action="crttable">
+						<div class="modal-header">
+							<input class="form-control" type="text" name="tabName" value="" placeholder="Table Name" required>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          					<span aria-hidden="true">&times;</span>
+        				</button>
+						</div>
+						<div class="modal-body">
+								<table class="table crtTable table-hover">
+									<thead class="thead-dark">
+										<tr>
+											<th scope="col">Column Name</th>
+											<th scope="col">Column Type</th>
+											<th scope="col">Size</th>
+											<th scope="col">Constraints</th>
+										</tr>
+									</thead>
+									<tbody id="crtTableBody">
+										<tr id="row1">
+											<td>
+												<input class="form-control" type="text" name="colName" required>
+												</td>
+											<td>
+												<select class="custom-select" id="colType" name="colType" >
+														<option selected>Choose...</option>
+														<option value="Int">Int</option>
+														<option value="Varchar">Varchar</option>
+										 			</select>
+											</td>
+											<td>
+												<input class="form-control" type="text" name="colSize" value="">
+												</td>
+											<td>
+												<input type="text" plaaceholder="[Constraints]" name="primary">
+												</td>
+										</tr>
+									</tbody>
+								</table>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="addCol">Add Column</button>
+							<button type="button" class="btn btn-primary" id="rmCol">Remove Column</button>
+							<button type="submit" class="btn btn-primary">Create Table</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+
+		<div class="modal fade" id="insertTabForm" tabindex="-1" role="dialog" aria-labelledby="insertTabLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<form method="post" action="/DBManager/insertData">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h5 class="modal-title" id="exampleModalLabel">Insert Data</h5>
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          					<span aria-hidden="true">&times;</span>
+        				</button>
+					</div>
+						<div class="modal-body">
+							<input placeholder="Table Name" name="tableName" id="tableName"/>
+							<br/>
+							<div class="dropdown">
+								<button class="btn btn-secondary dropdown-toggle" type="button" id="tables" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						    Select Option
+						  </button>
+								<div class="dropdown-menu" aria-labelledby="tablesMenu" id="tablesMenu">
+
+								</div>
+								<table class="table">
+									<thead>
+										<tr id="tabHead"></tr>
+									</thead>
+									<tbody id="tabBody">
+
+									</tbody>
+								</table>
+							</div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-primary" id="addRow">Add Row</button>
+							<button type="submit" class="btn btn-primary">Insert Data</button>
+						</div>
+				</div>
+				</form>
+			</div>
+		</div>
+
+		<script src="jquery.js"></script>
+		<script type="text/javascript" src="index.js"></script>
+		<script type="text/javascript" src="bootstrap.min.js"></script>
+	</body>
+
+</html>

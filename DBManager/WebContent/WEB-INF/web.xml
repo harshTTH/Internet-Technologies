@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>DBManager</display-name>
+  <servlet>
+    <servlet-name>CreateTable</servlet-name>
+    <servlet-class>com.dbmanager.CreateTableServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>InsertData</servlet-name>
+    <servlet-class>com.dbmanager.InsertDataServlet</servlet-class>
+  </servlet>
+  <servlet>
+    <servlet-name>FetchTables</servlet-name>
+    <servlet-class>com.dbmanager.FetchTablesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CreateTable</servlet-name>
+    <url-pattern>/crttable</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>InsertData</servlet-name>
+    <url-pattern>/insertData</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+    <servlet-name>FetchTables</servlet-name>
+    <url-pattern>/fetchTables</url-pattern>
+  </servlet-mapping>
+</web-app>
